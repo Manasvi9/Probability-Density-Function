@@ -5,70 +5,43 @@ To learn the parameters of a probability density function (PDF) by applying a ro
 
 ---
 
-## Dataset
-- **Source:** India Air Quality Dataset (Kaggle)
-- **File Used:** `city_day.csv`
-- **Feature:** `NO2`
-- Missing values are removed before processing.
+## Learning Resource
+• India Air Quality Dataset (Kaggle)  
+• Concepts of Probability Density Functions  
+• Maximum Likelihood Estimation (MLE)
 
 ---
 
-## Transformation
-Each NO₂ value \( x \) is transformed into \( z \) using:
+## In this assignment we learn
 
-\[
-z = x + a_r \sin(b_r x)
-\]
+• **Getting Data:**  
+  How to load real-world air quality data and select NO₂ as the feature.
 
-where:
-\[
-a_r = 0.05 \times (r \bmod 7)
-\]
-\[
-b_r = 0.3 \times (r \bmod 5 + 1)
-\]
+• **Data Cleaning:**  
+  How to handle missing values before statistical modeling.
 
-and \( r \) is the university roll number.
+• **Feature Transformation:**  
+  How to apply a roll-number-parameterized non-linear transformation  
+  \( z = x + a_r \sin(b_r x) \)
 
----
+• **Statistical Modeling:**  
+  How to model transformed data using a Gaussian-shaped probability density function.
 
-## Probability Density Function
-The transformed variable \( z \) is modeled using:
+• **Parameter Estimation:**  
+  How to estimate μ and σ² using Maximum Likelihood Estimation (MLE).
 
-\[
-\hat{p}(z) = c \cdot e^{-\lambda (z - \mu)^2}
-\]
+• **Model Parameter Computation:**  
+  How to compute λ and normalization constant c for a valid PDF.
 
----
+• **Predicted Probability Density:**  
+  How to compute the predicted probability density \( \hat{p}(z) \) for each data point.
 
-## Parameter Estimation
-- Mean \( \mu \) and variance \( \sigma^2 \) are estimated using **Maximum Likelihood Estimation (MLE)**.
-- Remaining parameters are computed as:
+• **Model Validation:**  
+  Understanding normalization and interpretation of probability density values.
 
-\[
-\lambda = \frac{1}{2\sigma^2}
-\]
-\[
-c = \sqrt{\frac{\lambda}{\pi}}
-\]
+• **Result Interpretation:**  
+  How learned parameters describe the distribution of transformed NO₂ values.
 
-This ensures the PDF is properly normalized.
-
----
-
-## Learned Parameters
-mu = 21.147713187307595
-lambda = 0.00229778768143052
-c = 0.027044565726790013
-
----
-
-## Sample Predicted Probability Densities
-[0.02608736 0.01683214 0.02408164 0.02468327 0.01735768]
-
-> Note: These values represent **probability density**, not direct probabilities.
-
----
 
 ## Tools Used
 - Python
